@@ -59,4 +59,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 
+=======
+.env
+>>>>>>> 0c2d4ab (Final project)
