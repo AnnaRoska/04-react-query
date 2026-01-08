@@ -9,7 +9,8 @@ export interface MoviesResponse {
   total_results: number;
 }
 export const fetchMovies = async (query: string): Promise<Movie[]> => {
-  const response = await axios.get<MoviesResponse>("https://api.themoviedb.org/3/search/movie", {
+/*   const response = await axios.get<MoviesResponse>("https://api.themoviedb.org/3/search/movie", { */
+    const response = await axios.get<MoviesResponse>("https://api.themoviedb.org/3/search/movie", {
     params: {
       query,
       include_adult: false,
