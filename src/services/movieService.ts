@@ -8,18 +8,25 @@ export interface MoviesResponse {
   total_pages: number;
   total_results: number;
 }
-export const fetchMovies = async (query: string): Promise<Movie[]> => {
-/*   const response = await axios.get<MoviesResponse>("https://api.themoviedb.org/3/search/movie", { */
-    const response = await axios.get<MoviesResponse>("https://api.themoviedb.org/3/search/movie", {
-    params: {
-      query,
-      include_adult: false,
-    },
-headers: {
-    Authorization: `Bearer ${tmdbToken}`,
-  },
-  });
-  return response.data.results;
+export const fetchMovies = async (
+  query: string,
+  page: number
+): Promise<MoviesResponse> => {
+  const response = await axios.get<MoviesResponse>(
+    "https://api.themoviedb.org/3/search/movie",
+    {
+      params: {
+        query,
+        page,
+        include_adult: false,
+      },
+      headers: {
+        Authorization: `Bearer ${tmdbToken}`,
+      },
+    }
+  );
+
+  return response.data;
 };
 
 export default fetchMovies;
